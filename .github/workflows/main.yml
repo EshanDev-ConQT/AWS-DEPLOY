@@ -17,12 +17,6 @@ jobs:
           echo "$EC2_PRIVATE_KEY" > LostKey.pem
           chmod 600 LostKey.pem
 
-      - name: Add EC2 to known_hosts
-        run: |
-          mkdir -p ~/.ssh
-          touch ~/.ssh/known_hosts
-          echo "65.0.180.87 ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC7l+UUAWx2YFIPX+zKE+aqJMBGaPZ20HWI5Q44rA23KKL7Wx032HSKQJCYz4yW2YVWsUt1e+lkabpc1Fc8REtlphbdTVpjNnZcMNC9FVKnB0MdxbCX9Fqs6i5mViAnU+Bz/82DjHbgJzp3skNInXEUN0Dsn4A/V2D9mJuxQU0okQ3ypI414gjoktaKHiGDRu0NpgLVMEAbhU+fX8pxnHUwhScKd1AsfD/l9kZBW/WQvmj26j+yyNeLFDt1xuedD17k37gkka2N3RNhJcWlvm6PCzrw50l/X8299FQhRBk8eqq+FXq1hKJbXcV0PN3Xz+ZAN6twOkGA8rFIVsJM/BdOAWJw5fIrs5Supsgr34q0lBZxpwibgo4QTtumGa5hqWJVh1VBDB14cLkAdr3M2AXdBav+iPBKmoEpws3VCyzbxL7Z2wursP1Ad63Tqa/LZ4Ds02iHQ83jQzosBahxLTp4qj8QySd9FsZORTcRXh9+ELvgE5f6VE44eNeLY59OkLM=" >> ~/.ssh/known_hosts
-
       - name: Upload file to EC2
         run: scp -i LostKey.pem ./yourfile.txt $EC2_USERNAME@$EC2_HOST:/home/$EC2_USERNAME/
         env:
