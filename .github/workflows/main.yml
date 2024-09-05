@@ -15,9 +15,9 @@ jobs:
       - name: Print Private Key
         run: |
           echo "Private Key:"
-          printf "%s" "$EC2_PRIVATE_KEY"
+          echo "$EC2_PRIVATE_KEY"
         env:
-          EC2_PRIVATE_KEY: ${{ env.EC2_PRIVATE_KEY }}
+          EC2_PRIVATE_KEY: ${{ secrets.EC2_PRIVATE_KEY }}
 
       - name: Setup SSH key
         run: |
