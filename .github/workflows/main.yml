@@ -1,0 +1,29 @@
+name: Deploy into AWS
+
+on:
+    push:
+        branches:
+        - main
+
+jobs:
+    deploy:
+        runs-on: ubuntu-latest
+
+        steps:
+        - name: Checkout Action
+          uses: actions/checkout@v3
+
+        - name: Install SSH Client
+          run : sudo apt-get install -y openssh-client
+
+        - name: Transfer file to EC2 instance
+          env: 
+            EC2_HOST: ${{ secrets.EC2_HOST }}
+            EC2_USERNAME: ${{ secrets.EC2_USERNAME }}
+            EC2_PRIVATE_KEY: ${{ secrets.EC2_PRIVATE_KEY }}
+            run: |
+             echo "$EC2_PRIVATE_KEY" > ec2_key.pem
+             chmod 600 ec2_key.pem
+             scp -i ec2_key.pem ./yourfile.txt $EC2_USERNAME@$EC2_HOST:/home/$EC2_USERNAME/
+
+    
