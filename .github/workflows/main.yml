@@ -26,6 +26,6 @@ jobs:
       - name: Upload file to EC2
         run: scp -i ec2_key.pem ./yourfile.txt $EC2_USERNAME@$EC2_HOST:/home/$EC2_USERNAME/
         env:
-          EC2_HOST: ec2-65-0-180-87.ap-south-1.compute.amazonaws.com
+          EC2_HOST: 65.0.180.87
           EC2_USERNAME: ubuntu
           EC2_PRIVATE_KEY: ${{ secrets.EC2_PRIVATE_KEY }}
