@@ -8,6 +8,38 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    env:
+      EC2_HOST: 65.0.180.87
+      EC2_USERNAME: ubuntu
+      EC2_PRIVATE_KEY: |
+        -----BEGIN RSA PRIVATE KEY-----
+        MIIEogIBAAKCAQEAkZWOO2wEi5LepI+A0UcrEXqoNCMSuncPXLV6cCe8ffc9hM+B
+        onsdUr4TrvXylc8jcWYjIczcdBpyvY3bmsUzVr3O5vJ9M3pyvQLH9ukNhH6nwm95
+        pN1LLkuOIlqscwiwDViwl9rxXXnbEmsOrcyUvluVBNeSQCb2ftRDyg8RpBJwRdh9
+        vlPtQuxmNCfdjw5ulN9cSSBWXOQ1rapjoGDAXgAuFzSulIX2c0Bm5qnLzt+JEIyM
+        BN68zFVQy6Ad1SKZnG2GGbIpOD64bAX1FkjNyb9t3AKptB0/Vqy2qWRcK8b8NeZy
+        9+wce0R5BY/pxt42dGvp/eNIZsUrz21zVoIm/wIDAQABAoIBAA9TUhS5S0UyIdPq
+        82GUf1kos1pBsvAEJo7Y39m8pSARjd1URs5G7ZBPSB0r8OyKUK3YVaxyN2bVfeys
+        aUjCp6Pi+UvgjQOFSVzSVSCN6glfl+Nk/sY3MXnfJEhDiVHWwUm2Y2io+K2hbUlk
+        EbiEB8h+NZK76r5sG5jAWZ6EtZOy39AI9aI2KAf5wZAUkHmW3grqfzsY8fLCUg14
+        fpH0qEq7hKY5QdiAF4Z5xzhEQiE1lveF+m49ZTViZ0Xoymw4TFoRrxLTsJfbdW0D
+        P29tgmjxYK8I2ZiFuJdT8Pqh5BK+oTFu4GvPq0DY12Qa9bRjtc6XLJYHM5hQIf90
+        ThbIS0kCgYEA6dAhBU1R26lPBWiPRJTB2sJP/XrCkWSjWgPa0S1OGRMZnrGIjx8Z
+        ThDBWNFsG+Zk28toqNTUbA+I0Nl+uDwsg10sE0Jm7sx3BnOEKlhtXwTOM3lUgyT/
+        zqBNtJ0RRwL9xupSMxQt07QUiHjpHg8fkeS+Jnh9Vdq2LhNR2A14ggsCgYEAn2Yj
+        6K7o+bxHyi9MIwvphA9lLKcZybr64a6wShyRgzXUvBVW7EwgefrrfhHYtGr1DHHk
+        nzypvyzzNwTw9ctTWi0SbdAHmp5kUAdAIiPnKhraPFY6zJkowO9+8hIntzfmQ+A5
+        +Vxyzn3vU+xpR5q/ti0DLVedxSV34XAHEPwjW10CgYAjCbJ5Fe4nacbSu6mEkHpA
+        axALn0LbAObNzXgUEqL6dPdI5bfeIr3rCe2/fpqhz7PbkC7d5g7zJpzNF1q7ByFw
+        ihzZwgCk1nUbvWHX6qpxK8ouwobcpEXFVBZw83ysVJFtJp4s02BOslTFYsEkZQXJ
+        Gis4nqPBouXcH78LDnG5owKBgHaYD+9282+bXe5X8lXA7ySKL8RhLxagPzjaN99s
+        EfeFfZnSZrG4khEvVzadIJZbXaa8tlSjVcgfMXWl/4Fgncth7Ww2cvHfFtNUEatU
+        +xCgme56WZUP/vpNNi30xAfVV0T49ylIV0K6/+1433ue7zQjmVGK9p9PmTnpl9hT
+        QBshAoGAC2xbxeVxNhRyo4J7DhD4RVy34PJKyY7FulFe64ad8VotIQ8iEKxYJqyx
+        eijsSBRY4zbSzs8vPSrJsy71KeFsHknMx0qknjGEpBx810qzTDMRnV/qyEAhJ2/b
+        LeTJVy/YwLHemH2sl/fL36JwYLJ4jxZ2hD3aEpR4tzqt08GG4DQ=
+        -----END RSA PRIVATE KEY-----
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
