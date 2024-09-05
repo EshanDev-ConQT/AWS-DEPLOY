@@ -12,12 +12,9 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Print Private Key
-        run: |
-          echo "Private Key:"
-          echo "$EC2_PRIVATE_KEY"
-        env:
-          EC2_PRIVATE_KEY: ${{ secrets.EC2_PRIVATE_KEY }}
+      - name: Print All Environment Variables
+        run: env
+
 
       - name: Setup SSH key
         run: |
